@@ -1,5 +1,4 @@
 <?php
-define('BASEURL','config.php');
 
 try{
     $conn = new PDO("mysql:host=localhost;dbname=backend_db","root","");
@@ -7,8 +6,6 @@ try{
 }
 
 catch(PDOException $e){
-    header('Content-Type: application/json', true, 500);
-    echo json_encode(['status' => 'error', 'message' => 'Database connection error: ' . $e->getMessage()]);
-    exit();
+    die("Connection failed:" .$e->getMessage());
 }
 ?>
